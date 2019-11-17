@@ -1,84 +1,164 @@
-body
-    background-color: #535353
+body 
+    height: 100%
     font-family: Arial, Helvetica, sans-serif
-    font-weight: 700
 
-header
+.wrapper 
+
+.container
+    max-width: 1180px
+    margin: 0 auto
+    padding: 0px 10px
+
+////////* header */////////
+
+.header
+    position: fixed
     width: 100%
-    background-color: #fff
-    display: flex
-    justify-content: center
-    border-radius: 25px
-    
-
-nav
-    margin: 20px 0
-    background-color: #e64a19
-    
-    
-nav ul
-    padding: 0
-    margin: 0 
-    list-style: none
-    position: relative
-    text-transform: uppercase
-    
-
-
-nav ul li
-    margin: 0px -7px 0 0
-    display: inline-block
-    background-color: #e64a19
-    
-    
-
-nav a
-    display: block
-    padding: 0 10px
-    color: #ffffff
-    font-size: 20px
-    line-height: 60px
-    text-decoration: none
-    
-    
-
-nav a:hover 
-    background-color: #000000
-
-nav ul ul 
-    display: none
-    position: absolute
-    top: 100%
+    top: 0
     left: 0
+    z-index: 50
 
-nav ul li:hover > ul
-    display: inherit
-
-nav ul ul li
-    min-width: 170px
-    float: none
-    display: list-item
-    position: relative
-
-nav ul ul ul 
+.header:before
+    content: ''
     position: absolute
     top: 0
-    left: 100%
+    left: 0
+    width: 100%
+    height: 100%
+    background-color: #5e5373
+    z-index: 2
 
-nav ul li:first-child
-    border-left: 1px solid black
+.header__body
+    position: relative
+    display: flex
+    justify-content: space-between
+    height: 80px
+    align-items: center
 
-nav ul li:last-child
-    border-right: 1px solid black
+////////* header logo */////////
 
-nav ul li 
-    border-left: 1px solid black
+.header__logo
+    border-radius: 50%
+    flex: 0 0 80px
+    overflow: hidden
+    position: relative
+    z-index: 3
 
-nav ul ul li
-    border-right: 1px solid black
-    border-bottom: 1px solid black
+.header__logo img
+    max-width: 100%  
+    display: block 
 
-nav ul ul li:first-child
-    border-top: 1px solid black
+////////* header burger */////////
+
+.header__burger
+    display: none
+
+.header__menu
+
+////////* header list */////////
+
+.header__list
+    list-style-type: none
+    display: flex 
+    position: relative
+    z-index: 5  
+
+.header__link
+    color: #ffffff
+    text-transform: uppercase
+    text-decoration: none
+    font-size: 18px
+    margin: 0px 0px 0px 16px
+
+////////* content */////////
+
+.content
+    padding-top: 100px
     
+.content__text
+    font-size: 18px
+    line-height: 25px
     
+.content__text p
+    margin: 0px 0px 20px 0
+
+////////* media */////////
+
+@media screen and ( max-width:767px)
+    .header__body
+        height: 72px
+
+    .header__logo
+        flex: 0 0 55px
+
+    .header__burger
+        display: block
+        position: relative
+        width: 30px
+        height: 20px
+        position: relative
+        z-index: 3
+    
+    .header__burger:before,
+    .header__burger:after
+        content: ''
+        background-color: #ffffff
+        position: absolute
+        width: 100%
+        height: 2px
+        left: 0
+        transition: all 0.3s ease
+
+    .header__burger span
+        position: absolute
+        background-color: #ffffff
+        left: 0
+        width: 100%
+        height: 2px
+        top: 9px
+        transition: all 0.3s ease
+        
+
+    .header__burger:before
+         top: 0
+
+    .header__burger:after
+         bottom: 0
+
+    .header__burger.active:before
+        transform: rotate(45deg)
+        top: 9px
+
+    .header__burger.active:after
+        transform: rotate(-45deg)
+        top: 9px
+    
+
+    .header__burger.active span
+        transform: scale(0)
+        
+
+    .header__menu
+        position: fixed
+        top: -100%
+        left: 0
+        width: 100%
+        height: 100%
+        background-color: #18b5a4
+        padding: 70px 0px 0px 0px
+        overflow: auto
+        
+    .header__menu.active
+        top: 0
+        transition: all 0.5s ease
+        
+    .header__list
+        display: block
+        margin: 0 auto
+        line-height: 70px
+        font-size: 32px
+        text-align: center
+        padding: 0
+
+    .content 
+        padding: 75px 0px 0px 0px
